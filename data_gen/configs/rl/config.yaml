@@ -1,0 +1,25 @@
+task_name: ${task.name}
+
+physics_engine: "physx"
+pipeline: "gpu"
+sim_device: "cuda:0"
+rl_device: "cuda:0"
+graphics_device_id: 0
+num_gpus: 1
+
+test: False
+resume: 0
+logdir: "/tmp/debug"
+headless: True
+job_dir: ""
+num_save: 200
+
+defaults:
+  - task: Cartpole
+  - train: ${task}
+  - hydra/job_logging: disabled
+
+hydra:
+  output_subdir: null
+  run:
+    dir: .

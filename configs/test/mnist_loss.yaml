@@ -1,0 +1,80 @@
+amp: false
+rng_seed: 0
+num_gpus: 1
+out_dir: test_results
+exp_name: mnist_loss
+resume_path: "mnist_loss.pt"
+test_only: true
+debug_mode: false
+
+dataset:
+  name: mnist_loss
+  train_metric: avg_test_loss
+  path: "checkpoint_datasets/mnist"
+  num_test_runs: 500
+  augment: true
+  normalizer: openai
+  openai_coeff: 4.185
+  target_epoch_size: 100800
+  max_train_runs: 1000000
+  num_workers: 1
+
+vis:
+  freq: 20
+  num_nets_per_gpu: 16
+  net_mb_size_per_gpu: 16
+  recursive_probe: true
+  use_ema: true
+  dvo_steps: 20
+  prompt_start_coeff: 0.9
+
+sampling:
+  thresholding: none
+
+transformer:
+  ema: true
+  absolute_loss_conditioning: true
+  predict_xstart: true
+  chunk_size: 1000
+  split_policy: "chunk_within_layer"
+  max_freq_log2: 14
+  num_frequencies: 128
+  n_embd: 1536
+  encoder_depth: 1
+  decoder_depth: 1
+  n_layer: 12
+  n_head: 16
+  dropout_prob: 0.0
+
+train:
+  ema_decay: 0.9999
+  beta2: 0.999
+  grad_clip: 0.75
+  warmup_factor: 0.0
+  warmup_epochs: 5
+  lr_sch: cos
+  base_lr: 4e-4
+  wd: 0.1
+  num_ep: 2000
+  mb_size: 1024
+  checkpoint_freq: 250
+
+test:
+  freq: 20
+  mb_size: 1024
+  use_ema: false
+
+wandb:
+  name: ${exp_name}
+  group: default
+  project: Gpt
+  entity: learn2learn
+  mode: online
+
+defaults:
+  - override hydra/job_logging: disabled
+
+hydra:
+  output_subdir: null
+  run:
+    dir: .

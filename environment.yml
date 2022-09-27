@@ -1,0 +1,26 @@
+name: G.pt
+channels:
+  - defaults
+  - pytorch
+  - conda-forge
+dependencies:
+  - black
+  - cudatoolkit=11.3
+  - gym
+  - hydra-core
+  - icecream
+  - ipython
+  - joblib
+  - jupyter
+  - moviepy
+  - numpy
+  - plotly
+  - python=3.8
+  - python-kaleido
+  - python-lmdb=1.3.0
+  - pytorch=1.11
+  - simplejson
+  - submitit
+  - torchvision=0.12
+  - tqdm
+  - wandb

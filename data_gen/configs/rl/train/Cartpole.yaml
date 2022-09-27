@@ -1,0 +1,28 @@
+seed: 0
+torch_deterministic: False
+
+policy:
+  pi_hid_sizes: [32, 32]
+  vf_hid_sizes: [32, 32]
+
+learn:
+  agent_name: pytorch_ppo
+  resume: 0
+  test: False
+  print_log: True
+  save_interval: 10
+
+  max_iterations: 500
+
+  cliprange: 0.2
+  ent_coef: 0
+  nsteps: 16
+  noptepochs: 8
+  nminibatches: 2
+  optim_stepsize: 3.e-4
+  schedule: cos
+  gamma: 0.99
+  lam: 0.95
+  init_noise_std: 1.0
+
+  log_interval: 10

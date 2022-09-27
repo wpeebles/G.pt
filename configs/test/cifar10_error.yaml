@@ -1,0 +1,80 @@
+amp: false
+rng_seed: 0
+num_gpus: 1
+out_dir: test_results
+exp_name: cifar10_error
+resume_path: "cifar10_error.pt"
+test_only: true
+debug_mode: false
+
+dataset:
+  name: cifar10_error
+  train_metric: avg_test_err
+  path: "checkpoint_datasets/cifar10"
+  num_test_runs: 2050
+  augment: true
+  normalizer: openai
+  openai_coeff: 1.646
+  target_epoch_size: 100800
+  max_train_runs: 1000000
+  num_workers: 1
+
+vis:
+  freq: 20
+  num_nets_per_gpu: 128
+  net_mb_size_per_gpu: 64
+  recursive_probe: true
+  use_ema: true
+  dvo_steps: 20
+  prompt_start_coeff: 1.0
+
+sampling:
+  thresholding: none
+
+transformer:
+  ema: true
+  absolute_loss_conditioning: true
+  predict_xstart: true
+  chunk_size: 576
+  split_policy: "chunk_within_layer"
+  max_freq_log2: 14
+  num_frequencies: 128
+  n_embd: 2048
+  encoder_depth: 1
+  decoder_depth: 1
+  n_layer: 12
+  n_head: 16
+  dropout_prob: 0.0
+
+train:
+  ema_decay: 0.9999
+  beta2: 0.999
+  grad_clip: 0.1
+  warmup_factor: 0.0
+  warmup_epochs: 5
+  lr_sch: cos
+  base_lr: 4e-4
+  wd: 0.1
+  num_ep: 15000
+  mb_size: 550
+  checkpoint_freq: 500
+
+test:
+  freq: 10
+  mb_size: 550
+  use_ema: false
+
+wandb:
+  name: ${exp_name}
+  group: default
+  project: Gpt
+  entity: learn2learn
+  mode: online
+
+defaults:
+  - override hydra/job_logging: disabled
+
+hydra:
+  output_subdir: null
+  run:
+    dir: .

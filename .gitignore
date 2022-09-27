@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+*.egg-info/
+*.egg
+
+# Temporary files
+*.swn
+*.swo
+*.swp
+
+# IDEs
+.idea
+.vscode
+
+# Mac
+.DS_STORE
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Other
+results/
+checkpoint_datasets/
+pretrained_models/
+wandb/
+exps/
+scripts/
+figure_files/
