@@ -64,7 +64,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/anaconda3/envs/G.pt/lib
 We provide three checkpoint datasets, in aggregate containing over 23M checkpoints from 100K+ training runs. Each 
 individual checkpoint contains neural network parameters and any useful task-specific metadata (e.g., test losses and 
 errors for classification, episode returns for RL). If you run our G.pt testing scripts (explained 
-[below](#evaluating-pre-trained-gpt-models)), the relevant checkpoint data will be auto-downloaded. Or, you can 
+[below](#evaluating-gpt-models)), the relevant checkpoint data will be auto-downloaded. Or, you can 
 download all three checkpoint datasets (and the five pre-trained G.pt models) by running:
 
 ```python
