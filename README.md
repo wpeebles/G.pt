@@ -14,12 +14,14 @@ loss-conditional diffusion models of neural network parameters.
 > [Jitendra Malik](http://people.eecs.berkeley.edu/~malik/)
 > <br>University of California, Berkeley<br>
 
-Our generative models, G.pt, are conditioned on a starting parameter vector, a starting loss/error/return and a 
+Our generative models are conditioned on a starting parameter vector, a starting loss/error/return and a 
 _prompted_ loss/error/return. With these inputs, we can sample an updated parameter vector that ideally achieves the 
-prompt. The core of G.pt is a transformer model that operates over sequences of parameters from the input neural network
+prompt. We call our model G.pt (G and .pt refer to generative models and checkpoint extensions, respectively). The core of 
+G.pt is a transformer model that operates over sequences of parameters from the input neural network
 parameters. Similar to ViTs, G.pt leverages very few domain-specific inductive biases (only in tokenization and data augmentation). 
 The transformer is trained as a diffusion model directly in parameter space. After training, G.pt
-can optimize neural networks from random initialization in one step by prompting for a small loss/error or high return.
+can optimize neural networks from random initialization in one step by prompting for a small loss/error or high return. 
+In this paper, we introduce G.pt models for optimizing MNIST MLPs, CIFAR-10 CNNs and Cartpole Gaussian MLPs. 
 
 This repository contains:
 
