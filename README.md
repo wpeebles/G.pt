@@ -89,7 +89,7 @@ Additional information about the datasets can be found in our [paper](http://arx
 
 **Using our pre-trained G.pt models.** We provide five pre-trained G.pt models. They can be used by setting the config's 
 `resume_path` to one of `cartpole.pt`, `mnist_loss.pt`, `mnist_error.pt`, `cifar_loss.pt` or `cifar_error.pt`. If you use 
-of these values, the relevant model will be automatically downloaded and cached in the `pretrained_models` folder.
+one of these values, the relevant model will be automatically downloaded and cached in the `pretrained_models` folder.
 
 You can evaluate G.pt models by running [`main.py`](main.py) with the `test_only=True` flag. We provide several
 testing configs [here](configs/test). For example, to create one-step/recursive optimization curves and compute prompt
