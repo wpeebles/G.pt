@@ -160,7 +160,7 @@ We provide several scripts to facilitate checkpoint generation in the [`data_gen
 files that generate supervised learning and reinforcement learning checkpoints. You can use the
 [`train_batch.py`](data_gen/train_batch.py) script to indefinitely launch single-GPU task-level training jobs on a node 
 to collect a large number of checkpoints. After saving enough checkpoints, you'll want to filter out any with bad parameter 
-values (e.g., NaNs). You can do this with [prepare_checkpoints.py](Gpt/data/prepare_checkpoints.py) (be sure to update 
+values (e.g., NaNs). You can do this with [`prepare_checkpoints.py`](Gpt/data/prepare_checkpoints.py) (be sure to update 
 it with a path to your new directory of checkpoints):
 
 ```python
